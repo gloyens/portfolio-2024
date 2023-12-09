@@ -1,0 +1,46 @@
+div.TaskbarItemsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  max-width: calc(100dvw - 160px);
+
+  padding: 2px
+}
+
+button.TaskbarItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--color-blue-light);
+  border-right-color: var(--color-blue-dark);
+  border-bottom-color: var(--color-blue-dark);
+  background-color: var(--color-blue);
+
+  height: 100%;
+  padding: 0 12px;
+
+  font-size: inherit;
+  color: white;
+  overflow: hidden;
+
+  &:hover {
+    background-color: var(--color-blue-light);
+  }
+
+  &:active {
+    border: 2px solid var(--color-blue-dark);
+    border-right-color: var(--color-blue-light);
+    border-bottom-color: var(--color-blue-light);
+    background-color: var(--color-blue-dark);
+  }
+}
+
+button.ActiveItem {
+  border: 2px solid var(--color-blue-dark);
+  border-right-color: var(--color-blue-light);
+  border-bottom-color: var(--color-blue-light);
+  background-color: var(--color-blue-dark);
+}

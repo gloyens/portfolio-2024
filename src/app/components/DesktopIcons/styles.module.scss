@@ -1,0 +1,32 @@
+ul.DesktopIconsWrapper {
+  list-style-type: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  max-width: 360px;
+  padding: 24px;
+}
+
+li.Icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  width: 84px;
+  padding: 12px;
+
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px dotted var(--color-blue);
+
+    figcaption {
+      background-color: var(--color-blue);
+      color: white;
+    }
+  }
+}

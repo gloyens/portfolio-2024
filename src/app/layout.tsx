@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import './globals.scss'
+import './utils/colors.scss'
+import { PageWrapper, PageContent } from './styles'
+import Taskbar from './components/Taskbar'
+import { AppContextProvider } from './utils/context'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +17,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <AppContextProvider>
+          <PageWrapper>
+            <PageContent>
+              {children}
+            </PageContent>
+            <Taskbar />
+          </PageWrapper>
+        </AppContextProvider>
+      </body>
     </html>
   )
 }

@@ -1,0 +1,44 @@
+header.TitleBarWrapper {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-width: 100%;
+  height: 24px;
+
+  border: 2px solid var(--color-pink-light);
+  border-right-color: var(--color-pink-dark);
+  border-bottom-color: var(--color-pink-dark);
+  background-color: var(--color-pink);
+
+  h2 {
+    padding: 0 12px 0 6px;
+    margin-right: auto;
+    font-size: 16px;
+    color: black;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
+    border-right-color: black;
+    border-bottom-color: black;
+    background-color: var(--color-yellow);
+
+    height: 100%;
+    width: 20px;
+    min-width: 20px;
+
+    cursor: pointer;
+
+    &:active {
+      border: 2px solid black;
+      border-right-color: white;
+      border-bottom-color: white;
+      background-color: var(--color-yellow-dark);
+    }
+  }
+}

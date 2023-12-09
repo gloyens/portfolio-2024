@@ -1,0 +1,48 @@
+section.WindowWrapper {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+
+  display: none;
+  flex-direction: column;
+
+  border: 2px solid var(--color-blue-light);
+  border-right-color: var(--color-blue-dark);
+  border-bottom-color: var(--color-blue-dark);
+  background-color: var(--color-blue);
+
+  color: white;
+
+  width: 80%;
+  min-width: fit-content;
+  max-width: 100dvw;
+  height: 60%;
+  min-height: 64px;
+  max-height: calc(100dvh - 36px);
+
+  resize: both;
+  overflow: auto;
+
+  cursor: default;
+  transition: 0.2s;
+}
+
+section.OpenWindowWrapper {
+  display: flex;
+}
+
+section.MaximisedWindowWrapper {
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  resize: none;
+}
+
+section.MinimisedOpenWindowWrapper {
+  z-index: -1;
+}
+
+section.ActiveWindowWrapper {
+  z-index: 1;
+}

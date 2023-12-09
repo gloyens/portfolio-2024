@@ -1,0 +1,18 @@
+main.PageWrapper {
+  display: flex;
+  flex-direction: column;
+
+  width: 100dvw;
+  height: 100dvh;
+
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(var(--color-pink) 2px, transparent 2px),
+    linear-gradient(to right, var(--color-pink) 2px, var(--color-bg) 2px);
+  background-size: 40px 40px;
+}
+
+div.PageContent {
+  position: relative;
+  flex: 1;
+}
