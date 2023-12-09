@@ -12,7 +12,7 @@ section.WindowWrapper {
   background-color: var(--color-blue);
 
   width: 80%;
-  min-width: fit-content;
+  min-width: 160px;
   max-width: 100dvw;
   height: 60%;
   min-height: 84px;
@@ -21,16 +21,16 @@ section.WindowWrapper {
   padding: 2px;
 
   resize: both;
-  overflow: auto;
+  overflow: hidden;
 
   cursor: default;
   transition: 0.2s;
+}
 
-  p {
-    padding: 2px 4px;
-    font-size: 14px;
-    color: white;
-  }
+p.MenuBar {
+  padding: 2px 4px;
+  font-size: 14px;
+  color: white;
 }
 
 section.OpenWindowWrapper {
@@ -61,8 +61,16 @@ div.ContentWrapper {
   border-right-color: var(--color-blue-light);
   border-bottom-color: var(--color-blue-light);
   background-color: var(--color-pink-light);
-}
 
-@media (max-width: 576px) {
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
 
+  ::selection {
+    background-color: var(--color-yellow);
+    color: black;
+  }
+
+  overflow: auto;
 }

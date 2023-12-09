@@ -4,20 +4,21 @@ import Image from "next/image";
 import Window from "@/app/components/Window";
 
 import { IconWrapper } from "./styles";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { useAppContext } from "@/app/utils/context";
 
 interface Props {
   name: string;
   src: string;
   alt: string;
+  page?: ReactNode;
 }
 
-const Icon = ({ name, src, alt }: Props) => {
+const Icon = ({ name, src, alt, page }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const {openList, setOpenList, minimisedList, setMinimisedList, setActive} = useAppContext();
 
-  const handleOpen = () => {
+  const handleOpen = async () => {
     setIsOpen(true);
     setActive(name);
 
@@ -39,7 +40,7 @@ const Icon = ({ name, src, alt }: Props) => {
   return (
     <>
       <Window title={name} open={isOpen} closeWindow={handleClose}>
-        Lorem ipsum
+        {page ? page : "No data!"}
       </Window>
       <IconWrapper onClick={handleOpen}>
         <Image src={src} alt={alt} height={48} width={48} />

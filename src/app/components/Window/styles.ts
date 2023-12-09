@@ -30,3 +30,7 @@ export const WindowWrapper = styled("section", {
 export const ContentWrapper = styled("div", {
   css: css.ContentWrapper,
 });
+
+export const MenuBar = styled("p", {
+  css: css.MenuBar,
+});

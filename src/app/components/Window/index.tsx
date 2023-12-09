@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { WindowWrapper, ContentWrapper } from "./styles";
+import { WindowWrapper, ContentWrapper, MenuBar } from "./styles";
 import TitleBar from "@/app/components/TitleBar";
 import { enableDrag } from "@/app/utils/dragElement";
 import { useAppContext } from "@/app/utils/context";
@@ -77,7 +77,7 @@ const Window = ({ title, open, children, closeWindow }: Props) => {
         toggleMinimise={handleMinimise}
         closeWindow={handleClose}
       />
-      <p>File Edit View</p>
+      <MenuBar>File Edit View</MenuBar>
       <ContentWrapper>
         {children}
       </ContentWrapper>
