@@ -9,11 +9,12 @@ import { useAppContext } from "@/app/utils/context";
 interface Props {
   title: string;
   open: boolean;
+  index: number;
   children: ReactNode;
   closeWindow: () => void;
 }
 
-const Window = ({ title, open, children, closeWindow }: Props) => {
+const Window = ({ title, open, index, children, closeWindow }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
   const [isMaximised, setIsMaximised] = useState(false);
@@ -69,6 +70,10 @@ const Window = ({ title, open, children, closeWindow }: Props) => {
       active={active === title}
       maximised={isMaximised}
       minimised={isMinimised}
+      style={{
+        top: `calc(40px + (${index} * 12px))`,
+        left: `calc(40px + (${index} * 12px))`
+      }}
     >
       <TitleBar
         ref={titleBarRef}

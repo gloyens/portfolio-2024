@@ -8,13 +8,14 @@ import { ReactNode, useState } from "react";
 import { useAppContext } from "@/app/utils/context";
 
 interface Props {
+  index: number;
   name: string;
   src: string;
   alt: string;
   page?: ReactNode;
 }
 
-const Icon = ({ name, src, alt, page }: Props) => {
+const Icon = ({ name, src, alt, page, index }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const {openList, setOpenList, minimisedList, setMinimisedList, setActive} = useAppContext();
 
@@ -39,7 +40,12 @@ const Icon = ({ name, src, alt, page }: Props) => {
 
   return (
     <>
-      <Window title={name} open={isOpen} closeWindow={handleClose}>
+      <Window
+        title={name}
+        open={isOpen}
+        closeWindow={handleClose}
+        index={index}
+      >
         {page ? page : "No data!"}
       </Window>
       <IconWrapper onClick={handleOpen}>

@@ -1,7 +1,5 @@
 section.WindowWrapper {
   position: absolute;
-  top: 10%;
-  left: 10%;
 
   display: none;
   flex-direction: column;
@@ -11,7 +9,7 @@ section.WindowWrapper {
   border-bottom-color: var(--color-blue-dark);
   background-color: var(--color-blue);
 
-  width: 80%;
+  width: 70%;
   min-width: 160px;
   max-width: 100dvw;
   height: 60%;

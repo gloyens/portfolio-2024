@@ -28,9 +28,10 @@ const DesktopIcons = () => {
   return (
     <>
       <DesktopIconsWrapper>
-        {iconDataList.map((iconData) => (
+        {iconDataList.map((iconData, index) => (
           <Icon
-            key={iconData.name}
+            key={index}
+            index={index}
             name={iconData.name}
             src={iconData.src}
             alt={iconData.alt}
