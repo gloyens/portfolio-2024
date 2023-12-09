@@ -1,0 +1,26 @@
+main.Page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  max-width: 420px;
+  margin: auto;
+  padding: 18px;
+
+  color: black;
+
+  cursor: text;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 12px;
+  }
+
+  a {
+    color: var(--color-blue);
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+}
