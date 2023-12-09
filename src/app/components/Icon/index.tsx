@@ -38,7 +38,9 @@ const Icon = ({ name, src, alt }: Props) => {
 
   return (
     <>
-      <Window title={name} open={isOpen} closeWindow={handleClose}>hi</Window>
+      <Window title={name} open={isOpen} closeWindow={handleClose}>
+        Lorem ipsum
+      </Window>
       <IconWrapper onClick={handleOpen}>
         <Image src={src} alt={alt} height={48} width={48} />
         <figcaption>{name}</figcaption>

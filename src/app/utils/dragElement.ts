@@ -18,8 +18,16 @@ export const enableDrag = (
   let initialMouseOffset: Position = { x: 0, y: 0 };
   let initialElementOffset: Position = { x: 0, y: 0 };
 
-  const handleMouseDown = (event: MouseEvent) => {
+  const handleStart = (event: MouseEvent | TouchEvent) => {
     draggableElement.style.transition = "none";
+
+    const isTouchEvent = event instanceof TouchEvent;
+    const clientX = isTouchEvent
+      ? (event as TouchEvent).touches[0].clientX
+      : (event as MouseEvent).clientX;
+    const clientY = isTouchEvent
+      ? (event as TouchEvent).touches[0].clientY
+      : (event as MouseEvent).clientY;
 
     const targetClicked =
       event.target === targetElement ||
@@ -28,7 +36,7 @@ export const enableDrag = (
       isDragging = true;
 
       const boundingRect = draggableElement.getBoundingClientRect();
-      initialMouseOffset = { x: event.clientX, y: event.clientY };
+      initialMouseOffset = { x: clientX, y: clientY };
       const scrollLeft = document.documentElement.scrollLeft;
       const scrollTop = document.documentElement.scrollTop;
       initialElementOffset = {
@@ -38,22 +46,26 @@ export const enableDrag = (
 
       onDragStart(initialMouseOffset);
 
-      const handleMouseMove = (event: MouseEvent) => {
+      const handleMove = (moveEvent: MouseEvent | TouchEvent) => {
+        const moveClientX = isTouchEvent
+          ? (moveEvent as TouchEvent).touches[0].clientX
+          : (moveEvent as MouseEvent).clientX;
+        const moveClientY = isTouchEvent
+          ? (moveEvent as TouchEvent).touches[0].clientY
+          : (moveEvent as MouseEvent).clientY;
+
         if (isDragging) {
           const maxX = window.innerWidth - boundingRect.width;
           const maxY = window.innerHeight - boundingRect.height - 36;
 
-          // Calculate the new position within the viewport boundaries
           let newLeft =
-            event.clientX - initialMouseOffset.x + initialElementOffset.x;
+            moveClientX - initialMouseOffset.x + initialElementOffset.x;
           let newTop =
-            event.clientY - initialMouseOffset.y + initialElementOffset.y;
+            moveClientY - initialMouseOffset.y + initialElementOffset.y;
 
-          // Ensure the window stays within the viewport
           newLeft = Math.max(0, Math.min(newLeft, maxX));
           newTop = Math.max(0, Math.min(newTop, maxY));
 
-          // Update the window position if within the viewport
           if (
             newLeft >= 0 &&
             newTop >= 0 &&
@@ -65,21 +77,28 @@ export const enableDrag = (
         }
       };
 
-      const handleMouseUp = () => {
+      const handleEnd = () => {
         draggableElement.style.transition = "0.2s";
 
         if (isDragging) {
           isDragging = false;
           onDragEnd();
-          document.removeEventListener("mousemove", handleMouseMove);
-          document.removeEventListener("mouseup", handleMouseUp);
+          document.removeEventListener("mousemove", handleMove);
+          document.removeEventListener("mouseup", handleEnd);
+          document.removeEventListener("touchmove", handleMove);
+          document.removeEventListener("touchend", handleEnd);
         }
       };
 
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
+      document.addEventListener("mousemove", handleMove);
+      document.addEventListener("mouseup", handleEnd);
+      document.addEventListener("touchmove", handleMove);
+      document.addEventListener("touchend", handleEnd);
     }
   };
 
-  draggableElement.addEventListener("mousedown", handleMouseDown);
+  draggableElement.addEventListener("mousedown", handleStart);
+  draggableElement.addEventListener("touchstart", handleStart, {
+    passive: false,
+  });
 };

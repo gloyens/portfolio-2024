@@ -26,3 +26,7 @@ export const WindowWrapper = styled("section", {
     },
   ],
 });
+
+export const ContentWrapper = styled("div", {
+  css: css.ContentWrapper,
+});

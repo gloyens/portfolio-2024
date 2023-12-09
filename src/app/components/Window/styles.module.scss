@@ -11,20 +11,26 @@ section.WindowWrapper {
   border-bottom-color: var(--color-blue-dark);
   background-color: var(--color-blue);
 
-  color: white;
-
   width: 80%;
   min-width: fit-content;
   max-width: 100dvw;
   height: 60%;
-  min-height: 64px;
+  min-height: 84px;
   max-height: calc(100dvh - 36px);
+
+  padding: 2px;
 
   resize: both;
   overflow: auto;
 
   cursor: default;
   transition: 0.2s;
+
+  p {
+    padding: 2px 4px;
+    font-size: 14px;
+    color: white;
+  }
 }
 
 section.OpenWindowWrapper {
@@ -45,4 +51,18 @@ section.MinimisedOpenWindowWrapper {
 
 section.ActiveWindowWrapper {
   z-index: 1;
+}
+
+div.ContentWrapper {
+  height: 100%;
+  width: 100%;
+
+  border: 2px solid var(--color-blue-dark);
+  border-right-color: var(--color-blue-light);
+  border-bottom-color: var(--color-blue-light);
+  background-color: var(--color-pink-light);
+}
+
+@media (max-width: 576px) {
+
 }
