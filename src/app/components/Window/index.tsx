@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { WindowWrapper, ContentWrapper, MenuBar, EditBanner } from "./styles";
+import { WindowWrapper, ContentWrapper, MenuBar } from "./styles";
 import TitleBar from "@/app/components/TitleBar";
 import { enableDrag } from "@/app/utils/dragElement";
 import { useAppContext } from "@/app/utils/context";
@@ -72,6 +72,7 @@ const Window = ({ title, open, index, children, closeWindow }: Props) => {
       active={active === title}
       maximised={isMaximised}
       minimised={isMinimised}
+      editable={isEditable}
       style={{
         top: `calc(40px + (${index} * 12px))`,
         left: `calc(40px + (${index} * 12px))`,
@@ -80,6 +81,7 @@ const Window = ({ title, open, index, children, closeWindow }: Props) => {
       <TitleBar
         ref={titleBarRef}
         title={title}
+        editable={isEditable}
         toggleMaximise={handleMaximise}
         toggleMinimise={handleMinimise}
         closeWindow={handleClose}

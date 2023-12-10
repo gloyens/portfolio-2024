@@ -14,6 +14,9 @@ export const WindowWrapper = styled("section", {
     minimised: {
       true: css.MinimisedWindowWrapper,
     },
+    editable: {
+      true: css.EditableWindowWrapper,
+    },
     active: {
       true: css.ActiveWindowWrapper,
     },

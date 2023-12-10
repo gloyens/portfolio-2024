@@ -25,7 +25,7 @@ section.WindowWrapper {
   transition: 0.2s;
 }
 
-p.MenuBar {
+ul.MenuBar {
   padding: 2px 4px;
   font-size: 14px;
   color: white;
@@ -45,6 +45,21 @@ section.MaximisedWindowWrapper {
 
 section.MinimisedOpenWindowWrapper {
   z-index: -1;
+}
+
+section.EditableWindowWrapper {
+  border: 2px solid white;
+  border-right-color: var(--color-yellow-dark);
+  border-bottom-color: var(--color-yellow-dark);
+  background-color: var(--color-yellow);
+
+  ul.MenuBar li {
+    color: black;
+
+    &:hover {
+      background-color: var(--color-yellow-dark);
+    }
+  }
 }
 
 section.ActiveWindowWrapper {
@@ -77,6 +92,11 @@ div.EditableContent {
   background-image: radial-gradient(var(--color-pink) 1px, white 1px);
   background-size: 20px 20px;
 
+  border: 2px solid var(--color-yellow-dark);
+  border-right-color: white;
+  border-bottom-color: white;
+  background-color: var(--color-yellow);
+
   &:focus {
     outline: none;
   }
@@ -86,13 +106,17 @@ ul.MenuBar {
   list-style-type: none;
 
   display: flex;
-  padding: 2px 6px;
-  gap: 6px;
+  padding: 2px;
 
   li {
     color: white;
     background-color: transparent;
 
+    padding: 0 4px;
     font-size: 14px;
+
+    &:hover {
+      background-color: var(--color-blue-dark);
+    }
   }
 }

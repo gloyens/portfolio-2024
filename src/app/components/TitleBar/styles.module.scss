@@ -49,3 +49,14 @@ header.TitleBarWrapper {
     }
   }
 }
+
+header.EditableTitleBar {
+  border: 2px solid var(--color-pink);
+  border-right-color: var(--color-pink-darker);
+  border-bottom-color: var(--color-pink-darker);
+  background-color: var(--color-pink-dark);
+
+  h2 {
+    color: white;
+  }
+}
