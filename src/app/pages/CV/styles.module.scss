@@ -3,5 +3,14 @@ article.CVPage {
   flex-direction: column;
   gap: 6px;
 
-  padding: 12px 18px;
+  padding: 24px 18px;
+
+  embed {
+    border: 2px solid var(--color-pink);
+    border-right-color: white;
+    border-bottom-color: white;
+    background-color: var(--color-pink-light);
+
+    margin-top: 48px;
+  }
 }
