@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { WindowWrapper, ContentWrapper, MenuBar } from "./styles";
+import { WindowWrapper, ContentWrapper, MenuBar, EditBanner } from "./styles";
 import TitleBar from "@/app/components/TitleBar";
 import { enableDrag } from "@/app/utils/dragElement";
 import { useAppContext } from "@/app/utils/context";
@@ -16,20 +16,22 @@ interface Props {
 
 const Window = ({ title, open, index, children, closeWindow }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isEditable, setIsEditable] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
   const [isMaximised, setIsMaximised] = useState(false);
-  const {minimisedList, setMinimisedList, active, setActive} = useAppContext();
+  const { minimisedList, setMinimisedList, active, setActive } =
+    useAppContext();
   const windowRef = useRef<HTMLElement>(null);
   const titleBarRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    setIsOpen(open)
+    setIsOpen(open);
   }, [open]);
 
   useEffect(() => {
-    minimisedList.includes(title) ?
-      setIsMinimised(true) :
-      setIsMinimised(false)
+    minimisedList.includes(title)
+      ? setIsMinimised(true)
+      : setIsMinimised(false);
   }, [minimisedList, title]);
 
   useEffect(() => {
@@ -49,19 +51,19 @@ const Window = ({ title, open, index, children, closeWindow }: Props) => {
   }, [windowRef, titleBarRef]);
 
   const handleMinimise = () => {
-    setIsMinimised(true)
+    setIsMinimised(true);
     setActive("");
-    setMinimisedList([...minimisedList, title])
-  }
+    setMinimisedList([...minimisedList, title]);
+  };
 
   const handleMaximise = () => {
     setIsMaximised(!isMaximised);
-  }
+  };
 
   const handleClose = () => {
     setIsOpen(false);
     closeWindow();
-  }
+  };
 
   return (
     <WindowWrapper
@@ -72,7 +74,7 @@ const Window = ({ title, open, index, children, closeWindow }: Props) => {
       minimised={isMinimised}
       style={{
         top: `calc(40px + (${index} * 12px))`,
-        left: `calc(40px + (${index} * 12px))`
+        left: `calc(40px + (${index} * 12px))`,
       }}
     >
       <TitleBar
@@ -82,12 +84,18 @@ const Window = ({ title, open, index, children, closeWindow }: Props) => {
         toggleMinimise={handleMinimise}
         closeWindow={handleClose}
       />
-      <MenuBar>File Edit View</MenuBar>
-      <ContentWrapper>
+      <MenuBar>
+        <li>File</li>
+        <li onClick={() => setIsEditable(!isEditable)}>
+          {isEditable ? "Editing" : "Edit"}
+        </li>
+        <li>View</li>
+      </MenuBar>
+      <ContentWrapper editable={isEditable} contentEditable={isEditable}>
         {children}
       </ContentWrapper>
     </WindowWrapper>
-  )
-}
+  );
+};
 
-export default Window
+export default Window;

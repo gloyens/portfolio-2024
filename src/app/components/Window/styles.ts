@@ -29,8 +29,22 @@ export const WindowWrapper = styled("section", {
 
 export const ContentWrapper = styled("div", {
   css: css.ContentWrapper,
+  variants: {
+    editable: {
+      true: css.EditableContent,
+    },
+  },
 });
 
-export const MenuBar = styled("p", {
+export const MenuBar = styled("ul", {
   css: css.MenuBar,
+});
+
+export const EditBanner = styled("div", {
+  css: css.EditBanner,
+  variants: {
+    visible: {
+      true: css.EditBannerVisible,
+    },
+  },
 });

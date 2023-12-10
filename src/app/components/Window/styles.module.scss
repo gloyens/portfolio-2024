@@ -72,3 +72,27 @@ div.ContentWrapper {
 
   overflow: auto;
 }
+
+div.EditableContent {
+  background-image: radial-gradient(var(--color-pink) 1px, white 1px);
+  background-size: 20px 20px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+ul.MenuBar {
+  list-style-type: none;
+
+  display: flex;
+  padding: 2px 6px;
+  gap: 6px;
+
+  li {
+    color: white;
+    background-color: transparent;
+
+    font-size: 14px;
+  }
+}
