@@ -30,12 +30,12 @@ const Icons = () => {
       </PageWrapper>
       <Widgets>
         <Widget>
-          <iframe
-            src="https://itch.io/embed/1463774"
-            width="208"
-            height="167"
-          />
-          <caption>
+          <iframe src="https://itch.io/embed/1463774" width="208" height="167">
+            <a href="https://rhosgfx.itch.io/vector-icon-pack">
+              Vector Icon Pack by Rhos
+            </a>
+          </iframe>
+          <div>
             <h3>Vector Icon Pack</h3>
             <p>
               The pack that started it all. A bestseller with over 1000 unique
@@ -44,21 +44,21 @@ const Icons = () => {
             <a href="https://rhosgfx.itch.io/vector-icon-pack" target="_blank">
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
         <Widget>
-          <iframe
-            src="https://itch.io/embed/2043033"
-            width="208"
-            height="167"
-          />
-          <caption>
+          <iframe src="https://itch.io/embed/2043033" width="208" height="167">
+            <a href="https://rhosgfx.itch.io/cartoony-ui-pack">
+              Cartoony UI Pack by Rhos
+            </a>
+          </iframe>
+          <div>
             <h3>Cartoony UI Pack</h3>
             <p>A UI pack designed to work with my icons.</p>
             <a href="https://rhosgfx.itch.io/cartoony-ui-pack" target="_blank">
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
         <Widget>
           <iframe src="https://itch.io/embed/2064382" width="208" height="167">
@@ -66,21 +66,21 @@ const Icons = () => {
               Vector Food Pack by Rhos
             </a>
           </iframe>
-          <caption>
+          <div>
             <h3>Vector Food Pack</h3>
             <p>A crowd favouite with a lot of potential for updates.</p>
             <a href="https://rhosgfx.itch.io/vector-food-pack" target="_blank">
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
         <Widget>
-          <iframe
-            src="https://itch.io/embed/1679559"
-            width="208"
-            height="167"
-          />
-          <caption>
+          <iframe src="https://itch.io/embed/1679559" width="208" height="167">
+            <a href="https://rhosgfx.itch.io/vector-item-tiers">
+              Vector Item Tiers by Rhos
+            </a>
+          </iframe>
+          <div>
             <h3>Vector Item Tiers</h3>
             <p>
               Progressively larger groups of currency items, for use in shops
@@ -89,15 +89,15 @@ const Icons = () => {
             <a href="https://rhosgfx.itch.io/vector-item-tiers" target="_blank">
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
         <Widget>
-          <iframe
-            src="https://itch.io/embed/2024966"
-            width="208"
-            height="167"
-          />
-          <caption>
+          <iframe src="https://itch.io/embed/2024966" width="208" height="167">
+            <a href="https://rhosgfx.itch.io/vector-animals-pack">
+              Vector Animals Pack by Rhos
+            </a>
+          </iframe>
+          <div>
             <h3>Vector Animals Pack</h3>
             <p>A newer pack with lots of updates planned.</p>
             <a
@@ -106,38 +106,38 @@ const Icons = () => {
             >
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
         <Widget>
-          <iframe
-            src="https://itch.io/embed/1555273"
-            width="208"
-            height="167"
-          />
-          <caption>
+          <iframe src="https://itch.io/embed/1555273" width="208" height="167">
+            <a href="https://rhosgfx.itch.io/vector-gamepasses">
+              Vector Gamepasses by Rhos
+            </a>
+          </iframe>
+          <div>
             <h3>Vector Gamepasses</h3>
             <p>Another bestseller, particularly in the Roblox community.</p>
             <a href="https://rhosgfx.itch.io/vector-gamepasses" target="_blank">
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
         <Widget>
-          <iframe
-            src="https://itch.io/embed/2309615"
-            width="208"
-            height="167"
-          />
-          <caption>
+          <iframe src="https://itch.io/embed/2309615" width="208" height="167">
+            <a href="https://rhosgfx.itch.io/vector-people-pack">
+              Vector People Pack by Rhos
+            </a>
+          </iframe>
+          <div>
             <h3>Vector People Pack</h3>
-            <p>Another recent pack with huge potential.</p>
+            <p>Another recent pack with lost more updates planned.</p>
             <a
               href="https://rhosgfx.itch.io/vector-people-pack"
               target="_blank"
             >
               View pack
             </a>
-          </caption>
+          </div>
         </Widget>
       </Widgets>
     </IconsPage>
