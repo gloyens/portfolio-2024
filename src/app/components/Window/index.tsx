@@ -81,6 +81,7 @@ const Window = ({
       maximised={isMaximised}
       minimised={isMinimised}
       editable={isEditable}
+      noScroll={noScroll}
       style={{
         top: `calc(40px + (${index} * 12px))`,
         left: `calc(40px + (${index} * 12px))`,

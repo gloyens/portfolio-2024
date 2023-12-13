@@ -4,6 +4,13 @@ import Image from "next/image";
 import { PlayerWrapper, AlbumWrapper, ImageContainer, PlayBar } from "./styles";
 import { useState } from "react";
 
+import {
+  IoIosSkipBackward,
+  IoIosSkipForward,
+  IoIosPlay,
+  IoIosPause,
+} from "react-icons/io";
+
 interface Props {
   albums: {
     artist: string;
@@ -14,6 +21,21 @@ interface Props {
 
 const Player = ({ albums }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const track = new Audio("/audio/dsco.mp3");
+
+  const handlePlay = () => {
+    // if (!track.paused) {
+    //   track.pause();
+    //   setIsPlaying(false);
+    // } else {
+    //   track.play();
+    //   setIsPlaying(true);
+    // }
+    console.log("Not implemented!");
+    setIsPlaying(!isPlaying);
+  };
 
   const navigateAlbum = (direction: "next" | "prev") => {
     setActiveIndex((prevIndex) => {
@@ -38,9 +60,15 @@ const Player = ({ albums }: Props) => {
         </AlbumWrapper>
       ))}
       <PlayBar>
-        <button onClick={() => navigateAlbum("next")}>Prev</button>
-        <button>Play</button>
-        <button onClick={() => navigateAlbum("prev")}>Next</button>
+        <button title="Next album" onClick={() => navigateAlbum("next")}>
+          <IoIosSkipBackward />
+        </button>
+        <button title="Play sample" onClick={() => handlePlay()}>
+          {isPlaying ? <IoIosPause /> : <IoIosPlay />}
+        </button>
+        <button title="Previous album" onClick={() => navigateAlbum("prev")}>
+          <IoIosSkipForward />
+        </button>
       </PlayBar>
     </PlayerWrapper>
   );

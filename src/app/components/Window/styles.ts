@@ -17,6 +17,9 @@ export const WindowWrapper = styled("section", {
     editable: {
       true: css.EditableWindowWrapper,
     },
+    noScroll: {
+      true: css.NoScrollWindowWrapper,
+    },
     active: {
       true: css.ActiveWindowWrapper,
     },
