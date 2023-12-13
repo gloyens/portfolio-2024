@@ -36,7 +36,17 @@ export const ContentWrapper = styled("div", {
     editable: {
       true: css.EditableContent,
     },
+    noScroll: {
+      true: css.NoScrollContent,
+    },
   },
+  compoundVariants: [
+    {
+      editable: true,
+      noScroll: true,
+      css: css.EditableNoScrollContent,
+    },
+  ],
 });
 
 export const MenuBar = styled("ul", {

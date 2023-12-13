@@ -9,12 +9,20 @@ import { useAppContext } from "@/app/utils/context";
 interface Props {
   title: string;
   open: boolean;
+  noScroll?: boolean;
   index: number;
   children: ReactNode;
   closeWindow: () => void;
 }
 
-const Window = ({ title, open, index, children, closeWindow }: Props) => {
+const Window = ({
+  title,
+  open,
+  noScroll,
+  index,
+  children,
+  closeWindow,
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditable, setIsEditable] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
@@ -93,7 +101,11 @@ const Window = ({ title, open, index, children, closeWindow }: Props) => {
         </li>
         <li>View</li>
       </MenuBar>
-      <ContentWrapper editable={isEditable} contentEditable={isEditable}>
+      <ContentWrapper
+        editable={isEditable}
+        contentEditable={isEditable}
+        noScroll={noScroll}
+      >
         {children}
       </ContentWrapper>
     </WindowWrapper>

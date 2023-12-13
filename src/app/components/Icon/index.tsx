@@ -13,35 +13,38 @@ interface Props {
   src: string;
   alt: string;
   page?: ReactNode;
+  noScroll?: boolean;
 }
 
-const Icon = ({ name, src, alt, page, index }: Props) => {
+const Icon = ({ name, src, alt, page, noScroll, index }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {openList, setOpenList, minimisedList, setMinimisedList, setActive} = useAppContext();
+  const { openList, setOpenList, minimisedList, setMinimisedList, setActive } =
+    useAppContext();
 
   const handleOpen = async () => {
     setIsOpen(true);
     setActive(name);
 
-    openList.includes(name) ?
-      setOpenList(openList) :
-      setOpenList([...openList, name])
+    openList.includes(name)
+      ? setOpenList(openList)
+      : setOpenList([...openList, name]);
 
-    minimisedList.includes(name) ?
-      setMinimisedList(minimisedList.filter(item => item !== name)) :
-      setMinimisedList(minimisedList)
+    minimisedList.includes(name)
+      ? setMinimisedList(minimisedList.filter((item) => item !== name))
+      : setMinimisedList(minimisedList);
   };
 
   const handleClose = () => {
     setIsOpen(false);
     setActive("");
-    setOpenList(openList.filter(item => item !== name));
+    setOpenList(openList.filter((item) => item !== name));
   };
 
   return (
     <>
       <Window
         title={name}
+        noScroll={noScroll}
         open={isOpen}
         closeWindow={handleClose}
         index={index}
@@ -53,7 +56,7 @@ const Icon = ({ name, src, alt, page, index }: Props) => {
         <figcaption>{name}</figcaption>
       </IconWrapper>
     </>
-  )
-}
+  );
+};
 
 export default Icon;

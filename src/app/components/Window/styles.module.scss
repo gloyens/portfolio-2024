@@ -102,6 +102,31 @@ div.EditableContent {
   }
 }
 
+div.NoScrollContent {
+  border: none;
+  background-color: var(--color-blue);
+
+  color: white;
+
+  overflow: hidden;
+}
+
+div.EditableNoScrollContent {
+  background-image: radial-gradient(var(--color-yellow-dark) 1px, var(--color-yellow) 1px);
+  background-size: 20px 20px;
+
+  color: black;
+
+  &:focus {
+    outline: none;
+  }
+
+  ::selection {
+    background-color: var(--color-blue);
+    color: white;
+  }
+}
+
 ul.MenuBar {
   list-style-type: none;
 
