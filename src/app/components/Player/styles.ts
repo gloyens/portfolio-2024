@@ -19,6 +19,10 @@ export const ImageContainer = styled("div", {
   css: css.ImageContainer,
 });
 
+export const Marquee = styled("div", {
+  css: css.Marquee,
+});
+
 export const PlayBar = styled("nav", {
   css: css.PlayBar,
 });

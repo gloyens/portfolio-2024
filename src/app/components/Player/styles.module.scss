@@ -18,6 +18,7 @@ div.AlbumWrapper {
   text-align: center;
 
   width: 100%;
+  max-width: 240px;
   height: 100%;
 }
 
@@ -46,9 +47,27 @@ div.ImageContainer {
   }
 }
 
+div.Marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+
+  > * {
+    display: inline-block;
+    margin: 0;
+    animation: marqueeScroll 20s linear infinite;
+  }
+
+  span {
+    margin-right: 48px;
+  }
+}
+
 nav.PlayBar {
   display: flex;
   gap: 6px;
+
+  padding: 12px;
 
   button {
     display: flex;
@@ -70,5 +89,14 @@ nav.PlayBar {
       border-bottom-color: white;
       background-color: var(--color-yellow-dark);
     }
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
