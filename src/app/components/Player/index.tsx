@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { PlayerWrapper, AlbumWrapper, ImageContainer, PlayBar } from "./styles";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import {
   IoIosSkipBackward,
@@ -22,22 +22,25 @@ interface Props {
 const Player = ({ albums }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-  const track = new Audio("/audio/dsco.mp3");
+  const trackNames = ["/dsco.mp3", "/dsco.mp3", "/dsco.mp3", "/dsco.mp3"];
 
   const handlePlay = () => {
-    // if (!track.paused) {
-    //   track.pause();
-    //   setIsPlaying(false);
-    // } else {
-    //   track.play();
-    //   setIsPlaying(true);
-    // }
-    console.log("Not implemented!");
-    setIsPlaying(!isPlaying);
+    const audio = audioRef.current;
+    if (audio) {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+      setIsPlaying(!audio.paused);
+    }
   };
 
   const navigateAlbum = (direction: "next" | "prev") => {
+    const audio = audioRef.current;
+
     setActiveIndex((prevIndex) => {
       if (direction === "next") {
         return prevIndex === albums.length - 1 ? 0 : prevIndex + 1;
@@ -46,6 +49,10 @@ const Player = ({ albums }: Props) => {
       }
       return prevIndex;
     });
+
+    if (audio) {
+      audio.src = `/audio/${trackNames[activeIndex]}`;
+    }
   };
 
   return (
@@ -70,6 +77,8 @@ const Player = ({ albums }: Props) => {
           <IoIosSkipForward />
         </button>
       </PlayBar>
+
+      <audio ref={audioRef} src={`/audio/${trackNames[activeIndex]}`} />
     </PlayerWrapper>
   );
 };
