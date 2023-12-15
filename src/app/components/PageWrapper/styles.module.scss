@@ -4,16 +4,16 @@ main.Page {
   gap: 18px;
 
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   margin: auto;
-  padding: 18px;
+  padding: 18px 18px 96px;
 
   color: black;
 
   cursor: text;
 
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 12px;
+    margin-top: 24px;
   }
 
   a {
@@ -22,6 +22,46 @@ main.Page {
     &:hover {
       text-decoration: underline;
       text-underline-offset: 2px;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    font-size: 14px;
+
+    li li {
+      padding-left: 24px;
+    }
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
+    border-right-color: black;
+    border-bottom-color: black;
+    background-color: var(--color-yellow);
+
+    padding: 4px 8px;
+
+    width: fit-content;
+
+    cursor: pointer;
+  }
+
+  details[open] {
+    p {
+      margin-top: 32px;
+    }
+
+    summary {
+      border: 2px solid black;
+      border-right-color: white;
+      border-bottom-color: white;
+      background-color: var(--color-yellow-dark);
     }
   }
 }

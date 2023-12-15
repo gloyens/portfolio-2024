@@ -16,39 +16,3 @@ ul.Widgets {
   width: 100%;
   padding: 24px 0;
 }
-
-li.Widget {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-
-  width: 100%;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-
-    text-align: left;
-
-    min-width: 160px;
-    max-width: 208px;
-
-    margin-bottom: 12px;
-  }
-
-  h3, p {
-    margin: 0;
-  }
-
-  a {
-    color: var(--color-blue);
-
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-  }
-}

@@ -89,6 +89,7 @@ const Window = ({
     >
       <TitleBar
         ref={titleBarRef}
+        isMaximised={isMaximised}
         title={title}
         editable={isEditable}
         toggleMaximise={handleMaximise}

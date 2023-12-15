@@ -1,10 +1,11 @@
 import { forwardRef } from "react";
 import { TitleBarWrapper } from "./styles";
-import { VscChromeMaximize } from "react-icons/vsc";
+import { VscChromeRestore, VscChromeMaximize } from "react-icons/vsc";
 import { MdMinimize, MdClose } from "react-icons/md";
 
 interface Props {
   title: string;
+  isMaximised: boolean;
   editable: boolean;
   ref: React.Ref<any>;
   toggleMinimise: () => void;
@@ -13,7 +14,17 @@ interface Props {
 }
 
 const TitleBar = forwardRef<HTMLElement, Props>(
-  ({ title, editable, toggleMinimise, toggleMaximise, closeWindow }, ref) => {
+  (
+    {
+      title,
+      isMaximised,
+      editable,
+      toggleMinimise,
+      toggleMaximise,
+      closeWindow,
+    },
+    ref
+  ) => {
     return (
       <TitleBarWrapper ref={ref} editable={editable}>
         <h2>{title}</h2>
@@ -21,7 +32,7 @@ const TitleBar = forwardRef<HTMLElement, Props>(
           <MdMinimize />
         </button>
         <button onClick={() => toggleMaximise()}>
-          <VscChromeMaximize />
+          {isMaximised ? <VscChromeRestore /> : <VscChromeMaximize />}
         </button>
         <button onClick={() => closeWindow()}>
           <MdClose />

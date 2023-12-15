@@ -5,3 +5,22 @@ article.CodePage {
 
   padding: 12px 18px;
 }
+
+ul.Projects {
+  list-style-type: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  width: 100%;
+  padding: 24px 0;
+}
+
+div.ImageWrapper {
+  height: 160px;
+
+  img {
+    object-fit: cover;
+  }
+}

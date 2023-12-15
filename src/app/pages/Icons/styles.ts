@@ -9,7 +9,3 @@ export const IconsPage = styled("article", {
 export const Widgets = styled("ul", {
   css: css.Widgets,
 });
-
-export const Widget = styled("li", {
-  css: css.Widget,
-});
