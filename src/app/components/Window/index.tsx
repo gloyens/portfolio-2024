@@ -82,6 +82,7 @@ const Window = ({
       minimised={isMinimised}
       editable={isEditable}
       noScroll={noScroll}
+      onMouseDown={() => setActive(title)}
       style={{
         top: `calc(40px + (${index} * 12px))`,
         left: `calc(40px + (${index} * 12px))`,
