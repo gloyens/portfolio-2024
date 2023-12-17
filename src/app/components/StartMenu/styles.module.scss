@@ -20,14 +20,27 @@ div.OpenStartMenu {
   display: flex;
 }
 
-ul.MenuItems li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+ul.MenuItems {
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-  padding: 12px 18px;
+    padding: 12px 18px;
 
-  &:hover {
-    background-color: var(--color-pink);
+    &:hover {
+      background-color: var(--color-pink);
+    }
+  }
+
+  button {
+    width: 100%;
+
+    background: transparent;
+    border: none;
+
+    font-size: initial;
+
+    cursor: pointer;
   }
 }
