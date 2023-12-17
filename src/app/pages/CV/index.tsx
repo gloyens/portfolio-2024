@@ -4,11 +4,10 @@ import { CVPage } from "./styles";
 const CV = () => {
   return (
     <CVPage>
-      <PageWrapper>
+      <PageWrapper noPadding>
         <h2>CV</h2>
         <p>
-          Below you&apos;ll find my CV. If it&apos;s hard to read, you can
-          either{" "}
+          Below you&apos;ll find my CV. You can also{" "}
           <a href="/george-gloyens-cv.pdf" download>
             download it
           </a>{" "}

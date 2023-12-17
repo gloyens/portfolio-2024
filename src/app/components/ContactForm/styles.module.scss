@@ -1,0 +1,43 @@
+form.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  input, textarea {
+    padding: 12px;
+
+    border: 2px solid var(--color-pink);
+    border-right-color: white;
+    border-bottom-color: white;
+    border-radius: 0;
+  }
+
+  textarea {
+    resize: none;
+    height: 160px;
+  }
+
+  button {
+    padding: 6px;
+    margin-top: 12px;
+
+    font-size: initial;
+
+    border: 2px solid white;
+    border-right-color: black;
+    border-bottom-color: black;
+    background-color: var(--color-yellow);
+
+    &:active {
+      border: 2px solid black;
+      border-right-color: white;
+      border-bottom-color: white;
+      background-color: var(--color-yellow-dark);
+    }
+  }
+}
