@@ -1,21 +1,41 @@
 import Image from "next/image";
 import { StartMenuWrapper, MenuItems } from "./styles";
+import { useAppContext } from "@/app/utils/context";
 
 interface Props {
   isOpen: boolean;
 }
 
 const StartMenu = ({ isOpen }: Props) => {
+  const { openList, setOpenList } = useAppContext();
+
+  const handleOpen = (name: string) => {
+    openList.includes(name)
+      ? setOpenList(openList)
+      : setOpenList([...openList, name]);
+  };
+
   return (
     <StartMenuWrapper isOpen={isOpen}>
       <MenuItems>
+        <button onClick={() => handleOpen("Notepad")}>
+          <li>
+            <Image
+              src="/icons/paper.png"
+              alt="Paper icon"
+              height={24}
+              width={24}
+            />
+            Notepad
+          </li>
+        </button>
         <a href="https://linkedin.com/in/gloyens" target="_blank">
           <li>
             <Image
               src="/icons/link.png"
               alt="Link icon"
-              height={16}
-              width={16}
+              height={24}
+              width={24}
             />
             LinkedIn
           </li>
@@ -25,8 +45,8 @@ const StartMenu = ({ isOpen }: Props) => {
             <Image
               src="/icons/envelopeWhite.png"
               alt="White envelope icon"
-              height={16}
-              width={16}
+              height={24}
+              width={24}
             />
             Email
           </li>
@@ -36,8 +56,8 @@ const StartMenu = ({ isOpen }: Props) => {
             <Image
               src="/icons/verified.png"
               alt="Twitter verified icon"
-              height={16}
-              width={16}
+              height={24}
+              width={24}
             />
             Twitter
           </li>
