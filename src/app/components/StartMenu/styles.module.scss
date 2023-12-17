@@ -1,0 +1,33 @@
+div.StartMenuWrapper {
+  display: none;
+  flex-direction: column;
+
+  width: 320px;
+
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+
+  border: 2px solid white;
+  border-right-color: var(--color-pink);
+  border-bottom-color: var(--color-pink);
+  background-color: var(--color-pink-light);
+
+  color: black;
+}
+
+div.OpenStartMenu {
+  display: flex;
+}
+
+ul.MenuItems li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 18px;
+
+  &:hover {
+    background-color: var(--color-pink);
+  }
+}

@@ -8,4 +8,9 @@ export const TaskbarWrapper = styled("footer", {
 
 export const StartButton = styled("button", {
   css: css.StartButton,
+  variants: {
+    isActive: {
+      true: css.ActiveStartButton,
+    },
+  },
 });

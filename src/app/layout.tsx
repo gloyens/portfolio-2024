@@ -3,7 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.scss";
 import "./utils/colors.scss";
-import { PageWrapper, PageContent } from "./styles";
+import { AppWrapper, PageContent } from "./styles";
 import Taskbar from "./components/Taskbar";
 import { AppContextProvider } from "./utils/context";
 
@@ -29,10 +29,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={jetBrains.className}>
         <AppContextProvider>
-          <PageWrapper>
+          <AppWrapper>
             <PageContent>{children}</PageContent>
             <Taskbar />
-          </PageWrapper>
+          </AppWrapper>
         </AppContextProvider>
       </body>
     </html>

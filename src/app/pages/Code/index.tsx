@@ -115,7 +115,11 @@ const Code = () => {
 
           <Project>
             <OGImageWrapper>
-              <Image src="/movieBot.png" alt="aaa" fill />
+              <Image
+                src="/movieBot.png"
+                alt="MovieBot.app promotional image"
+                fill
+              />
             </OGImageWrapper>
             <div>
               <h3>MovieBot</h3>
@@ -134,7 +138,11 @@ const Code = () => {
 
           <Project>
             <OGImageWrapper>
-              <Image src="/rmrkblty.png" alt="aaa" fill />
+              <Image
+                src="/rmrkblty.png"
+                alt="Rmrkblty.org promotional image"
+                fill
+              />
             </OGImageWrapper>
             <div>
               <h3>Rmrkblty</h3>
@@ -152,7 +160,11 @@ const Code = () => {
 
           <Project>
             <OGImageWrapper>
-              <Image src="/og-image.png" alt="aaa" fill />
+              <Image
+                src="/og-image.png"
+                alt="Gloyens.co.uk promotional image"
+                fill
+              />
             </OGImageWrapper>
             <div>
               <h3>Portfolio</h3>

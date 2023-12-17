@@ -24,13 +24,13 @@ footer.TaskbarWrapper {
     font-size: inherit;
 
     cursor: pointer;
+  }
 
-    &:active {
-      border: 2px solid black;
-      border-right-color: white;
-      border-bottom-color: white;
-      background-color: var(--color-yellow-dark);
-    }
+  button.ActiveStartButton {
+    border: 2px solid black;
+    border-right-color: white;
+    border-bottom-color: white;
+    background-color: var(--color-yellow-dark);
   }
 
   time {
@@ -45,9 +45,10 @@ footer.TaskbarWrapper {
     height: 100%;
     width: 80px;
     padding: 0 12px;
+
+    &:last-child {
+      margin-left: auto;
+    }
   }
 
-  :last-child {
-    margin-left: auto;
-  }
 }
