@@ -1,0 +1,68 @@
+ul.MenuBarWrapper {
+  position: relative;
+  display: flex;
+
+  padding: 0 2px;
+
+  list-style-type: none;
+  font-size: 14px;
+  color: white;
+
+  z-index: 1;
+
+  li {
+    position: relative;
+
+    p {
+      padding: 2px 4px;
+
+      &:hover {
+        background-color: var(--color-blue-dark);
+      }
+    }
+  }
+}
+
+ul.EditingMenuBar li {
+  color: black;
+
+  p:hover {
+    background-color: var(--color-yellow-dark) !important;
+  }
+}
+
+div.Modal {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 160px;
+
+  color: black;
+
+  border: 2px solid white;
+  border-right-color: var(--color-pink);
+  border-bottom-color: var(--color-pink);
+  background-color: var(--color-pink-light);
+
+  button {
+    padding: 4px 8px;
+    width: 100%;
+
+    text-align: start;
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-pink);
+    }
+  }
+}
+
+div.OpenModal {
+  display: flex;
+}
