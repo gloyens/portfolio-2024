@@ -64,4 +64,13 @@ main.Page {
       background-color: var(--color-yellow-dark);
     }
   }
+
+  code {
+    background-color: var(--color-pink);
+    padding: 2px 4px;
+    border-radius: 4px;
+
+    font-family: inherit;
+    font-size: 14px;
+  }
 }

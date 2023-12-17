@@ -10,6 +10,6 @@ export const Projects = styled("ul", {
   css: css.Projects,
 });
 
-export const ImageWrapper = styled("div", {
-  css: css.ImageWrapper,
+export const OGImageWrapper = styled("div", {
+  css: css.OGImageWrapper,
 });

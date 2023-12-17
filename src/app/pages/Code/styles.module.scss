@@ -17,8 +17,13 @@ ul.Projects {
   padding: 24px 0;
 }
 
-div.ImageWrapper {
-  height: 160px;
+div.OGImageWrapper {
+  height: fit-content;
+  aspect-ratio: 1.91 / 1;
+
+  border: 2px solid var(--color-pink);
+  border-right-color: white;
+  border-bottom-color: white;
 
   img {
     object-fit: cover;
