@@ -26,3 +26,7 @@ export const Marquee = styled("div", {
 export const PlayBar = styled("nav", {
   css: css.PlayBar,
 });
+
+export const Buttons = styled("div", {
+  css: css.Buttons,
+});

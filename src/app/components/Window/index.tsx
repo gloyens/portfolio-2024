@@ -72,6 +72,12 @@ const Window = ({
   const handleClose = () => {
     setIsOpen(false);
     closeWindow();
+
+    // Pause audio playback in children of ContentWrapper
+    const audioElements = windowRef.current?.querySelectorAll("audio");
+    audioElements?.forEach((audio) => {
+      audio.pause();
+    });
   };
 
   return (

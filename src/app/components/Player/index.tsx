@@ -6,9 +6,10 @@ import {
   AlbumWrapper,
   ImageContainer,
   PlayBar,
+  Buttons,
   Marquee,
 } from "./styles";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   IoIosSkipBackward,
@@ -30,6 +31,7 @@ interface Props {
 const Player = ({ albums }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(1);
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const albumWrapperRef = useRef<HTMLDivElement>(null);
@@ -65,6 +67,14 @@ const Player = ({ albums }: Props) => {
     }
   };
 
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
   return (
     <PlayerWrapper>
       {albums.map((album, i) => (
@@ -97,18 +107,29 @@ const Player = ({ albums }: Props) => {
         </AlbumWrapper>
       ))}
       <PlayBar>
-        <button title="Previous album" onClick={() => navigateAlbum("next")}>
-          <IoIosSkipBackward />
-        </button>
-        <button
-          title={`Play ${albums[activeIndex].trackName} by ${albums[activeIndex].artist}`}
-          onClick={() => handlePlay()}
-        >
-          {isPlaying ? <IoIosPause /> : <IoIosPlay />}
-        </button>
-        <button title="Next album" onClick={() => navigateAlbum("prev")}>
-          <IoIosSkipForward />
-        </button>
+        <Buttons>
+          <button title="Previous album" onClick={() => navigateAlbum("next")}>
+            <IoIosSkipBackward />
+          </button>
+          <button
+            title={`Play ${albums[activeIndex].trackName} by ${albums[activeIndex].artist}`}
+            onClick={() => handlePlay()}
+          >
+            {isPlaying ? <IoIosPause /> : <IoIosPlay />}
+          </button>
+          <button title="Next album" onClick={() => navigateAlbum("prev")}>
+            <IoIosSkipForward />
+          </button>
+        </Buttons>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={handleVolumeChange}
+          title="Volume Control"
+        />
       </PlayBar>
 
       <audio ref={audioRef} src={albums[activeIndex].track} />

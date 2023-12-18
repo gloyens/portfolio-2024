@@ -77,9 +77,42 @@ nav.PlayBar {
   bottom: 6px;
 
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 
+  width: 100%;
   padding: 12px;
+
+  input[type="range"] {
+    appearance: none;
+
+    width: 100%;
+    max-width: 112px;
+    height: 12px;
+
+    border: 2px solid black;
+    border-right-color: var(--color-blue-light);
+    border-bottom-color: var(--color-blue-light);
+    background-color: var(--color-blue-dark);
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+
+      height: 20px;
+      width: 12px;
+
+      border: 2px solid var(--color-blue-light);
+      border-right-color: black;
+      border-bottom-color: black;
+      background-color: var(--color-blue);
+    }
+  }
+}
+
+div.Buttons {
+  display: flex;
+  gap: 6px;
 
   button {
     display: flex;
