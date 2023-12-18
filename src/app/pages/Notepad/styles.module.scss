@@ -1,0 +1,22 @@
+article.NotepadPage {
+  height: 100%;
+  padding: 12px 18px;
+
+  div.TextArea {
+    resize: none;
+
+    min-height: 100px;
+    width: 100%;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    &:empty:before{
+      content: attr(placeholder);
+      color: var(--color-pink-dark);
+      pointer-events: none;
+      display: block; /* For Firefox */
+    }
+  }
+}
