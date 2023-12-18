@@ -1,17 +1,24 @@
 "use client";
 
-import React, { useState, ChangeEvent, KeyboardEvent } from "react";
+import React, { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
 import { WordlePage, Form, Words, Word, Letter } from "./styles";
-import { generateWord } from "smallwords";
+import { generate } from "random-words";
 
 type AnswerType = "Correct" | "Incorrect" | "WrongPos";
 type LetterType = { letter: string; status: AnswerType };
 
 const Wordle = () => {
   const [guess, setGuess] = useState("");
-  const [resultDisplay, setResultDisplay] = useState<LetterType[][]>([]);
-  const [targetWord, setTargetWord] = useState(generateWord());
+  const [resultList, setResultList] = useState<LetterType[][]>([]);
+  const [targetWord, setTargetWord] = useState<string>(
+    generate({
+      minLength: 5,
+      maxLength: 5,
+      exactly: 1,
+    })[0].toUpperCase()
+  );
   const [guessCount, setGuessCount] = useState(0);
+  const [correct, setCorrect] = useState(false);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value.toUpperCase().replace(/[^A-Z]/g, ""); // Only allow Latin letters
@@ -48,26 +55,34 @@ const Wordle = () => {
       return { letter, status: "Incorrect" };
     });
 
-    setResultDisplay([
-      ...(resultDisplay as LetterType[][]),
-      result as LetterType[],
-    ]);
+    setResultList([...(resultList as LetterType[][]), result as LetterType[]]);
     setGuessCount(guessCount + 1);
     setGuess("");
+
+    if (resultList.length >= 1) {
+      setCorrect(guess === targetWord);
+    }
   };
 
   const restartGame = () => {
     setGuess("");
-    setResultDisplay([]);
+    setResultList([]);
     setGuessCount(0);
+    setCorrect(false);
 
-    setTargetWord(generateWord());
+    setTargetWord(
+      generate({
+        minLength: 5,
+        maxLength: 5,
+        exactly: 1,
+      })[0].toUpperCase()
+    );
   };
 
   return (
     <WordlePage>
       <Words>
-        {resultDisplay.map((guessResult, index) => (
+        {resultList.map((guessResult, index) => (
           <Word key={index}>
             {guessResult.map((letterObject, i) => (
               <Letter key={i} status={letterObject.status}>
@@ -77,7 +92,7 @@ const Wordle = () => {
           </Word>
         ))}
       </Words>
-      <Form disabled={guessCount >= 6}>
+      <Form disabled={guessCount >= 6 || correct}>
         <input
           type="text"
           value={guess}
@@ -92,7 +107,7 @@ const Wordle = () => {
           Enter
         </button>
       </Form>
-      <Form disabled={guessCount < 6}>
+      <Form disabled={guessCount < 6 && !correct}>
         <p>{targetWord}</p>
         <button onClick={restartGame}>Restart</button>
       </Form>
