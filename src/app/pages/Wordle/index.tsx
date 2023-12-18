@@ -2,6 +2,8 @@
 
 import React, { useState, ChangeEvent, KeyboardEvent } from "react";
 import { WordlePage, Form, Words, Word, Letter } from "./styles";
+// @ts-ignore
+import { generateWord } from "smallwords";
 
 type AnswerType = "Correct" | "Incorrect" | "WrongPos";
 type LetterType = { letter: string; status: AnswerType };
@@ -9,7 +11,7 @@ type LetterType = { letter: string; status: AnswerType };
 const Wordle = () => {
   const [guess, setGuess] = useState("");
   const [resultDisplay, setResultDisplay] = useState<LetterType[][]>([]);
-  const [targetWord, setTargetWord] = useState("APPLE");
+  const [targetWord, setTargetWord] = useState(generateWord());
   const [guessCount, setGuessCount] = useState(0);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,10 +30,12 @@ const Wordle = () => {
 
   const checkGuess = () => {
     // Count the frequency of each letter in the target word
-    const targetMap = targetWord.split("").reduce((map, letter) => {
-      map.set(letter, (map.get(letter) || 0) + 1);
-      return map;
-    }, new Map<string, number>());
+    const targetMap = targetWord
+      .split("")
+      .reduce((map: Map<string, number>, letter: string) => {
+        map.set(letter, (map.get(letter) || 0) + 1);
+        return map;
+      }, new Map<string, number>());
 
     // Compare the guess against the target word and generate the result array
     const result = guess.split("").map((letter, i) => {
@@ -57,6 +61,8 @@ const Wordle = () => {
     setGuess("");
     setResultDisplay([]);
     setGuessCount(0);
+
+    setTargetWord(generateWord());
   };
 
   return (
@@ -88,6 +94,7 @@ const Wordle = () => {
         </button>
       </Form>
       <Form disabled={guessCount < 6}>
+        <p>{targetWord}</p>
         <button onClick={restartGame}>Restart</button>
       </Form>
     </WordlePage>

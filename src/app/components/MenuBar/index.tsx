@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MenuBarWrapper, Modal } from "./styles";
+import { MenuBarWrapper, Modal, Tab } from "./styles";
 import { useAppContext } from "@/app/utils/context";
 
 interface Props {
@@ -33,8 +33,6 @@ const MenuBar = ({ setIsEditable }: Props) => {
   };
 
   const handleDoNothing = () => {
-    console.log(counter, viewText);
-
     switch (true) {
       case counter >= 1 && counter < 5:
         setViewText("Did nothing 👍");
@@ -42,8 +40,11 @@ const MenuBar = ({ setIsEditable }: Props) => {
       case counter >= 5 && counter < 10:
         setViewText("Still did nothing 👍");
         break;
-      case counter >= 10:
+      case counter >= 10 && counter < 25:
         setViewText("Continued to do nothing 👍");
+        break;
+      case counter >= 25:
+        setViewText("Ok, fine!");
         break;
       default:
         setViewText("Do nothing");
@@ -57,21 +58,24 @@ const MenuBar = ({ setIsEditable }: Props) => {
     <MenuBarWrapper editing={editing}>
       <li>
         <Modal open={openModal === "File"}>
-          <button onClick={() => handleOpen("Notepad")}>New</button>
+          <Tab onClick={() => handleOpen("Notepad")}>New</Tab>
         </Modal>
         <p onClick={() => handleModal("File")}>File</p>
       </li>
       <li>
         <Modal open={openModal === "Edit"}>
-          <button onClick={() => handleEdit(!editing)}>
+          <Tab onClick={() => handleEdit(!editing)}>
             {editing ? "Stop editing" : "Edit content"}
-          </button>
+          </Tab>
         </Modal>
         <p onClick={() => handleModal("Edit")}>Edit</p>
       </li>
       <li>
         <Modal open={openModal === "View"}>
-          <button onClick={() => handleDoNothing()}>{viewText}</button>
+          <Tab onClick={() => handleDoNothing()}>{viewText}</Tab>
+          <Tab hidden={counter <= 25} onClick={() => handleOpen("Wordle")}>
+            Play Wordle
+          </Tab>
         </Modal>
         <p onClick={() => handleModal("View")}>View</p>
       </li>
