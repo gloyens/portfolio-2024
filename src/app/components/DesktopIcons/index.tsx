@@ -7,6 +7,7 @@ import Code from "@/app/pages/Code";
 import Music from "@/app/pages/Music";
 import CV from "@/app/pages/CV";
 import Icons from "@/app/pages/Icons";
+import Chat from "@/app/pages/Chat";
 
 interface IconData {
   name: string;
@@ -43,6 +44,12 @@ const iconDataList: IconData[] = [
     src: "/icons/envelope.png",
     alt: "Envelope icon",
     page: <Contact />,
+  },
+  {
+    name: "Chat",
+    src: "/icons/messageBox.png",
+    alt: "Speech bubble icon",
+    page: <Chat />,
   },
 ];
 
