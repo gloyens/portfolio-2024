@@ -15,6 +15,25 @@ export const Form = styled("div", {
   },
 });
 
+export const Submit = styled("button", {
+  css: css.Submit,
+});
+
+export const Keyboard = styled("div", {
+  css: css.Keyboard,
+});
+
+export const Key = styled("button", {
+  css: css.Key,
+  variants: {
+    status: {
+      Correct: css.KeyCorrect,
+      Incorrect: css.KeyIncorrect,
+      WrongPos: css.KeyWrongPos,
+    },
+  },
+});
+
 export const Words = styled("div", {
   css: css.Words,
 });

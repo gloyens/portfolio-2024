@@ -12,11 +12,18 @@ div.Form {
   width: 100%;
   max-width: 360px;
 
-  padding-bottom: 24px;
+  padding: 12px 0 24px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 12px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    column-gap: 12px;
+  }
 
   input {
     width: 100%;
@@ -30,7 +37,7 @@ div.Form {
     outline: none;
   }
 
-  button {
+  button.Submit {
     border: 2px solid white;
     border-right-color: black;
     border-bottom-color: black;
@@ -59,7 +66,48 @@ div.Form {
     border: 2px solid var(--color-pink);
     border-right-color: white;
     border-bottom-color: white;
+  }
+}
 
+div.Keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  span {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+}
+
+button.Key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  border: 2px solid white;
+  border-right-color: var(--color-pink);
+  border-bottom-color: var(--color-pink);
+  background-color: var(--color-pink-light);
+
+  &:active {
+    border: 2px solid var(--color-pink);
+    border-right-color: white;
+    border-bottom-color: white;
+  }
+
+  &:disabled {
+    border: 2px solid var(--color-pink);
+    border-right-color: white;
+    border-bottom-color: white;
+    background-color: var(--color-pink-light);
+
+    color: var(--color-pink);
   }
 }
 
@@ -73,6 +121,16 @@ div.Words {
   gap: 6px;
 
   padding-bottom: 12px;
+
+  height: 100%;
+  min-height: 48px;
+  overflow-y: scroll;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  &::-webkit-scrollbar { /* Chrome and Safari */
+    display: none;
+  }
 }
 
 p.Word {
@@ -99,7 +157,7 @@ span.Letter {
   aspect-ratio: 1;
 }
 
-span.LetterCorrect {
+span.LetterCorrect, button.KeyCorrect {
   border: 2px solid limegreen;
   border-right-color: darkgreen;
   border-bottom-color: darkgreen;
@@ -114,7 +172,16 @@ span.LetterIncorrect {
   background-color: var(--color-pink-light);
 }
 
-span.LetterWrongPos {
+button.KeyIncorrect {
+  border: 2px solid white;
+  border-right-color: var(--color-pink);
+  border-bottom-color: var(--color-pink);
+  background-color: var(--color-pink-light);
+
+  color: var(--color-pink);
+}
+
+span.LetterWrongPos, button.KeyWrongPos {
   border: 2px solid white;
   border-right-color: var(--color-yellow-dark);
   border-bottom-color: var(--color-yellow-dark);

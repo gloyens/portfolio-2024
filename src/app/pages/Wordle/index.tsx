@@ -1,8 +1,25 @@
 "use client";
 
-import React, { useState, ChangeEvent, KeyboardEvent } from "react";
-import { WordlePage, Form, Words, Word, Letter } from "./styles";
+import React, {
+  useState,
+  ChangeEvent,
+  KeyboardEvent,
+  useEffect,
+  useRef,
+} from "react";
+import {
+  WordlePage,
+  Form,
+  Submit,
+  Keyboard,
+  Key,
+  Words,
+  Word,
+  Letter,
+} from "./styles";
 import { generate } from "random-words";
+import { IoIosBackspace } from "react-icons/io";
+import { PiKeyReturnFill } from "react-icons/pi";
 
 type AnswerType = "Correct" | "Incorrect" | "WrongPos";
 type LetterType = { letter: string; status: AnswerType };
@@ -19,7 +36,23 @@ const Wordle = () => {
   );
   const [guessCount, setGuessCount] = useState(0);
   const [correct, setCorrect] = useState(false);
+  const wordsRef = useRef<HTMLDivElement>(null);
+  const keys = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 
+  // On-screen keyboard handling
+  const handleLetterClick = (letter: string) => {
+    if (guess.length < 5 && guessCount < 6 && !correct) {
+      setGuess(guess + letter);
+    }
+  };
+
+  const handleBackspace = () => {
+    if (guess.length > 0 && guessCount < 6 && !correct) {
+      setGuess(guess.slice(0, -1));
+    }
+  };
+
+  // Input field handling
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value.toUpperCase().replace(/[^A-Z]/g, ""); // Only allow Latin letters
     setGuess(input.slice(0, 5)); // Limit to 5 characters
@@ -34,6 +67,14 @@ const Wordle = () => {
     }
   };
 
+  useEffect(() => {
+    // Scroll to the bottom when the resultList changes
+    if (wordsRef.current) {
+      wordsRef.current.scrollTop = wordsRef.current.scrollHeight;
+    }
+  }, [resultList]);
+
+  // Game logic
   const checkGuess = () => {
     // Count the frequency of each letter in the target word
     const targetMap = targetWord
@@ -64,6 +105,20 @@ const Wordle = () => {
     }
   };
 
+  const getResultStatus = (key: string) => {
+    // Check if the key exists in the last guessed word in the resultList
+    const lastGuess = resultList[resultList.length - 1];
+    if (lastGuess) {
+      const letterObject = lastGuess.find(
+        (letterObj) => letterObj.letter === key
+      );
+      if (letterObject) {
+        return letterObject.status;
+      }
+    }
+    return;
+  };
+
   const restartGame = () => {
     setGuess("");
     setResultList([]);
@@ -81,7 +136,7 @@ const Wordle = () => {
 
   return (
     <WordlePage>
-      <Words>
+      <Words ref={wordsRef}>
         {resultList.map((guessResult, index) => (
           <Word key={index}>
             {guessResult.map((letterObject, i) => (
@@ -93,23 +148,58 @@ const Wordle = () => {
         ))}
       </Words>
       <Form disabled={guessCount >= 6 || correct}>
-        <input
-          type="text"
-          value={guess}
-          onChange={handleInputChange}
-          maxLength={5}
-          onKeyDown={handleEnterKey}
-        />
-        <button
-          onClick={checkGuess}
-          disabled={guessCount >= 6 || guess.length !== 5}
-        >
-          Enter
-        </button>
+        <div>
+          <input
+            type="text"
+            value={guess}
+            onChange={handleInputChange}
+            maxLength={5}
+            onKeyDown={handleEnterKey}
+          />
+          <Submit
+            onClick={checkGuess}
+            disabled={guessCount >= 6 || guess.length !== 5}
+          >
+            Enter
+          </Submit>
+        </div>
+        <Keyboard>
+          {keys.map((row, rowIndex) => (
+            <span key={rowIndex}>
+              {rowIndex === 2 && (
+                <Key
+                  onClick={checkGuess}
+                  disabled={guessCount >= 6 || guess.length !== 5 || correct}
+                >
+                  <PiKeyReturnFill />
+                </Key>
+              )}
+              {row.split("").map((key, index) => (
+                <Key
+                  key={index}
+                  onClick={() => handleLetterClick(key)}
+                  status={getResultStatus(key)}
+                >
+                  {key}
+                </Key>
+              ))}
+              {rowIndex === 2 && (
+                <Key
+                  onClick={handleBackspace}
+                  disabled={guess.length === 0 || guessCount >= 6 || correct}
+                >
+                  <IoIosBackspace />
+                </Key>
+              )}
+            </span>
+          ))}
+        </Keyboard>
       </Form>
       <Form disabled={guessCount < 6 && !correct}>
-        <p>{targetWord}</p>
-        <button onClick={restartGame}>Restart</button>
+        <div>
+          <p>{targetWord}</p>
+          <Submit onClick={restartGame}>Restart</Submit>
+        </div>
       </Form>
     </WordlePage>
   );
