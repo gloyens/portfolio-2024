@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { StartMenuWrapper, MenuItems } from "./styles";
+import { StartMenuWrapper, MenuItems, User } from "./styles";
 import { useAppContext } from "@/app/utils/context";
 
 interface Props {
@@ -17,14 +17,17 @@ const StartMenu = ({ isOpen }: Props) => {
 
   return (
     <StartMenuWrapper isOpen={isOpen}>
+      <User>
+        <h2 contentEditable>Guest</h2>
+      </User>
       <MenuItems>
         <button onClick={() => handleOpen("Notepad")}>
           <li>
             <Image
               src="/icons/paper.png"
               alt="Paper icon"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
             />
             Notepad
           </li>
@@ -34,8 +37,8 @@ const StartMenu = ({ isOpen }: Props) => {
             <Image
               src="/icons/link.png"
               alt="Link icon"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
             />
             LinkedIn
           </li>
@@ -45,8 +48,8 @@ const StartMenu = ({ isOpen }: Props) => {
             <Image
               src="/icons/envelopeWhite.png"
               alt="White envelope icon"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
             />
             Email
           </li>
@@ -56,8 +59,8 @@ const StartMenu = ({ isOpen }: Props) => {
             <Image
               src="/icons/verified.png"
               alt="Twitter verified icon"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
             />
             Twitter
           </li>

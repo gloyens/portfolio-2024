@@ -31,8 +31,9 @@ li.Icon {
   }
 }
 
-@media (max-height: 450px) {
+@media (max-height: 550px) {
   ul.DesktopIconsWrapper {
-    max-width: 400px;
+    max-width: 100%;
+    flex-direction: row;
   }
 }

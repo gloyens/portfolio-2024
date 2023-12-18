@@ -2,7 +2,7 @@ div.StartMenuWrapper {
   display: none;
   flex-direction: column;
 
-  width: 320px;
+  width: 322px;
 
   position: absolute;
   bottom: 36px;
@@ -42,5 +42,22 @@ ul.MenuItems {
     font-size: initial;
 
     cursor: pointer;
+  }
+}
+
+div.User {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 2px solid var(--color-pink);
+
+  img {
+    border: 2px solid var(--color-pink);
+    border-right-color: white;
+    border-bottom-color: white;
+    background-color: var(--color-pink-light);
   }
 }

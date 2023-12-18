@@ -14,3 +14,7 @@ export const StartMenuWrapper = styled("div", {
 export const MenuItems = styled("ul", {
   css: css.MenuItems,
 });
+
+export const User = styled("div", {
+  css: css.User,
+});
