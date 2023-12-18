@@ -58,7 +58,7 @@ div.ImageContainer {
 div.Marquee {
   white-space: nowrap;
   overflow-x: hidden;
-  height: 32px;
+  min-height: 28px;
   width: 100%;
 
   > * {
