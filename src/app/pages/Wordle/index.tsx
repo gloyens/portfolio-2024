@@ -2,7 +2,6 @@
 
 import React, { useState, ChangeEvent, KeyboardEvent } from "react";
 import { WordlePage, Form, Words, Word, Letter } from "./styles";
-// @ts-ignore
 import { generateWord } from "smallwords";
 
 type AnswerType = "Correct" | "Incorrect" | "WrongPos";
