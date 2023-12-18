@@ -21,6 +21,9 @@ const StartMenu = ({ isOpen }: Props) => {
         <h2 contentEditable>Guest</h2>
       </User>
       <MenuItems>
+        <button onClick={() => handleOpen("Wordle")}>
+          <li>Wordle</li>
+        </button>
         <button onClick={() => handleOpen("Notepad")}>
           <li>
             <Image

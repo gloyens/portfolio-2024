@@ -54,6 +54,10 @@ div.User {
   font-size: 14px;
   border-bottom: 2px solid var(--color-pink);
 
+  h2 {
+    outline: none;
+  }
+
   img {
     border: 2px solid var(--color-pink);
     border-right-color: white;
