@@ -94,6 +94,7 @@ const Window = ({
         isMaximised={isMaximised}
         title={title}
         editable={isEditable}
+        open={isOpen}
         toggleMaximise={handleMaximise}
         toggleMinimise={handleMinimise}
         closeWindow={handleClose}

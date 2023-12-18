@@ -6,6 +6,7 @@ import Window from "@/app/components/Window";
 import { IconWrapper } from "./styles";
 import { ReactNode, useState } from "react";
 import { useAppContext } from "@/app/utils/context";
+import { handleKeyPress } from "@/app/utils/accessibility";
 
 interface Props {
   index: number;
@@ -42,6 +43,14 @@ const Icon = ({ name, src, alt, page, noScroll, index }: Props) => {
 
   return (
     <>
+      <IconWrapper
+        onClick={handleOpen}
+        tabIndex={0}
+        onKeyDown={(e) => handleKeyPress(e, () => handleOpen())}
+      >
+        <Image src={src} alt={alt} height={48} width={48} />
+        <figcaption>{name}</figcaption>
+      </IconWrapper>
       <Window
         title={name}
         noScroll={noScroll}
@@ -51,10 +60,6 @@ const Icon = ({ name, src, alt, page, noScroll, index }: Props) => {
       >
         {page ? page : "No data!"}
       </Window>
-      <IconWrapper onClick={handleOpen}>
-        <Image src={src} alt={alt} height={48} width={48} />
-        <figcaption>{name}</figcaption>
-      </IconWrapper>
     </>
   );
 };
