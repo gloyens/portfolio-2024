@@ -8,8 +8,6 @@ ul.MenuBarWrapper {
   font-size: 14px;
   color: white;
 
-  z-index: 1;
-
   li {
     position: relative;
 
@@ -45,6 +43,8 @@ div.Modal {
   border-right-color: var(--color-pink);
   border-bottom-color: var(--color-pink);
   background-color: var(--color-pink-light);
+
+  z-index: 1;
 
   button {
     padding: 4px 8px;
