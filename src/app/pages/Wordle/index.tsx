@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
+import React, { useState, ChangeEvent, KeyboardEvent } from "react";
 import { WordlePage, Form, Words, Word, Letter } from "./styles";
 import { generate } from "random-words";
 
