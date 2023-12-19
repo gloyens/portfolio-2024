@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.gloyens.co.uk/og-image.png",
-        width: 1528,
-        height: 800,
+        width: 1200,
+        height: 630,
       },
     ],
     locale: "en_US",

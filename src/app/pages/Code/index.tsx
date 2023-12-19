@@ -161,7 +161,7 @@ const Code = () => {
           <Project>
             <OGImageWrapper>
               <Image
-                src="/og-image.png"
+                src="/portfolio.png"
                 alt="Gloyens.co.uk promotional image"
                 fill
               />
