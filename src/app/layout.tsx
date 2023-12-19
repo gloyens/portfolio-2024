@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "George Gloyens",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://www.gloyens.co.uk/og-image.png",
         width: 1528,
         height: 800,
       },
