@@ -25,12 +25,6 @@ section.WindowWrapper {
   transition: 0.2s;
 }
 
-ul.MenuBar {
-  padding: 2px 4px;
-  font-size: 14px;
-  color: white;
-}
-
 section.OpenWindowWrapper {
   display: flex;
 }
@@ -52,14 +46,6 @@ section.EditableWindowWrapper {
   border-right-color: var(--color-yellow-dark);
   border-bottom-color: var(--color-yellow-dark);
   background-color: var(--color-yellow);
-
-  ul.MenuBar li {
-    color: black;
-
-    &:hover {
-      background-color: var(--color-yellow-dark);
-    }
-  }
 }
 
 section.NoScrollWindowWrapper {

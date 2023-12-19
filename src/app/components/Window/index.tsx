@@ -1,8 +1,9 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { WindowWrapper, ContentWrapper, MenuBar } from "./styles";
+import { WindowWrapper, ContentWrapper } from "./styles";
 import TitleBar from "@/app/components/TitleBar";
+import MenuBar from "@/app/components/MenuBar";
 import { enableDrag } from "@/app/utils/dragElement";
 import { useAppContext } from "@/app/utils/context";
 
@@ -27,14 +28,8 @@ const Window = ({
   const [isEditable, setIsEditable] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
   const [isMaximised, setIsMaximised] = useState(false);
-  const {
-    openList,
-    setOpenList,
-    minimisedList,
-    setMinimisedList,
-    active,
-    setActive,
-  } = useAppContext();
+  const { minimisedList, setMinimisedList, active, setActive } =
+    useAppContext();
   const windowRef = useRef<HTMLElement>(null);
   const titleBarRef = useRef<HTMLElement>(null);
 
@@ -79,13 +74,6 @@ const Window = ({
     closeWindow();
   };
 
-  const handleOpen = (name: string) => {
-    openList.includes(name)
-      ? setOpenList(openList)
-      : setOpenList([...openList, name]);
-    setActive(name);
-  };
-
   return (
     <WindowWrapper
       ref={windowRef}
@@ -110,13 +98,7 @@ const Window = ({
         toggleMinimise={handleMinimise}
         closeWindow={handleClose}
       />
-      <MenuBar>
-        <li onClick={() => handleOpen("Notepad")}>File</li>
-        <li onClick={() => setIsEditable(!isEditable)}>
-          {isEditable ? "Editing" : "Edit"}
-        </li>
-        <li>View</li>
-      </MenuBar>
+      <MenuBar setIsEditable={setIsEditable} />
       <ContentWrapper
         editable={isEditable}
         contentEditable={isEditable}
