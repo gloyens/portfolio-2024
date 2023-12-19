@@ -58,7 +58,7 @@ const Icon = ({ name, src, alt, page, noScroll, index }: Props) => {
         closeWindow={handleClose}
         index={index}
       >
-        {page ? page : "No data!"}
+        {isOpen && page}
       </Window>
     </>
   );

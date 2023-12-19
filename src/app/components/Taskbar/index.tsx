@@ -44,10 +44,10 @@ const Taskbar = () => {
 
   return (
     <TaskbarWrapper ref={taskbarRef}>
-      <StartMenu isOpen={isOpen} />
       <StartButton onClick={() => setIsOpen(!isOpen)} isActive={isOpen}>
         Start
       </StartButton>
+      <StartMenu isOpen={isOpen} />
       <TaskbarItems />
       <time>{currentTime}</time>
     </TaskbarWrapper>

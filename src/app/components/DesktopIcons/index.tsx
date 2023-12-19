@@ -1,13 +1,15 @@
 import { ReactNode } from "react";
 import { DesktopIconsWrapper } from "./styles";
-import Icon from "@/app/components/Icon";
-import About from "@/app/pages/About";
-import Contact from "@/app/pages/Contact";
-import Code from "@/app/pages/Code";
-import Music from "@/app/pages/Music";
-import CV from "@/app/pages/CV";
-import Icons from "@/app/pages/Icons";
-import Chat from "@/app/pages/Chat";
+import dynamic from "next/dynamic";
+
+const Icon = dynamic(() => import("@/app/components/Icon"));
+const About = dynamic(() => import("@/app/pages/About"));
+const Contact = dynamic(() => import("@/app/pages/Contact"));
+const Code = dynamic(() => import("@/app/pages/Code"));
+const Music = dynamic(() => import("@/app/pages/Music"));
+const CV = dynamic(() => import("@/app/pages/CV"));
+const Icons = dynamic(() => import("@/app/pages/Icons"));
+const Chat = dynamic(() => import("@/app/pages/Chat"));
 
 interface IconData {
   name: string;
