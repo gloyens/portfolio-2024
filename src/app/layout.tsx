@@ -9,7 +9,22 @@ import { AppContextProvider } from "./utils/context";
 
 export const metadata: Metadata = {
   title: "George Gloyens",
-  description: "George Gloyens personal portfolio",
+  description: "George Gloyens' personal portfolio",
+  openGraph: {
+    title: "George Gloyens",
+    description: "George Gloyens' personal portfolio",
+    url: "https://gloyens.co.uk",
+    siteName: "George Gloyens",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1528,
+        height: 800,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   icons: {
     icon: "/icons/computer.png",
   },
