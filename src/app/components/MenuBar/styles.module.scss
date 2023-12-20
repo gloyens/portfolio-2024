@@ -31,11 +31,12 @@ ul.EditingMenuBar li {
 
 div.Modal {
   display: none;
+  flex-direction: column;
 
   position: absolute;
   top: 100%;
   left: 0;
-  width: 160px;
+  width: 150px;
 
   color: black;
 
@@ -45,22 +46,26 @@ div.Modal {
   background-color: var(--color-pink-light);
 
   z-index: 1;
+}
 
-  button {
-    padding: 4px 8px;
-    width: 100%;
+button.Tab {
+  padding: 4px 8px;
+  width: 100%;
 
-    text-align: start;
+  text-align: start;
 
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    &:hover {
-      background-color: var(--color-pink);
-    }
+  &:hover {
+    background-color: var(--color-pink);
   }
+}
+
+button.TabHidden {
+  display: none;
 }
 
 div.OpenModal {

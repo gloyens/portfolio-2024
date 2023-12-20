@@ -19,3 +19,12 @@ export const Modal = styled("div", {
     },
   },
 });
+
+export const Tab = styled("button", {
+  css: css.Tab,
+  variants: {
+    hidden: {
+      true: css.TabHidden,
+    },
+  },
+});
