@@ -40,13 +40,22 @@ const TitleBar = forwardRef<HTMLElement, Props>(
     return (
       <TitleBarWrapper ref={ref} editable={editable}>
         <h2>{title}</h2>
-        <button onClick={() => toggleMinimise()} tabIndex={0} ref={minimizeRef}>
+        <button
+          onClick={() => toggleMinimise()}
+          tabIndex={0}
+          ref={minimizeRef}
+          aria-label="Minimize"
+        >
           <MdMinimize />
         </button>
-        <button onClick={() => toggleMaximise()} tabIndex={0}>
+        <button
+          onClick={() => toggleMaximise()}
+          tabIndex={0}
+          aria-label="Maximize"
+        >
           {isMaximised ? <VscChromeRestore /> : <VscChromeMaximize />}
         </button>
-        <button onClick={() => closeWindow()} tabIndex={0}>
+        <button onClick={() => closeWindow()} tabIndex={0} aria-label="Close">
           <MdClose />
         </button>
       </TitleBarWrapper>
