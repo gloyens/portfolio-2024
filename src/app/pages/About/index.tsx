@@ -66,17 +66,16 @@ const About = () => {
         </div>
         <p>
           Immediately after leaving Japan I was hired full-time by a large
-          client. That unfortunately fell through a year later, but in the
-          meantime I had been building a{" "}
+          client. I worked with them for a year, simultaneously building my{" "}
           <a href="https://x.com/rhosgfx" target="_blank">
             public profile
-          </a>
-          .
+          </a>{" "}
+          on Twitter.
         </p>
         <p>
-          I began by selling bespoke UI and miscellaneous graphics. After
-          receiving enough commissions for similar icons that I was unable to
-          keep up with demand, I decided to release my first{" "}
+          After leaving that job I began selling bespoke UI and miscellaneous
+          graphics. After receiving enough commissions for similar icons that I
+          was unable to keep up with demand, I decided to release my first{" "}
           <a href="https://rhosgfx.itch.io/vector-icon-pack" target="_blank">
             icon pack
           </a>

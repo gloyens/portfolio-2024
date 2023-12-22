@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gloyens.co.uk
 
-## Getting Started
+### Live website: [gloyens.co.uk](https://www.gloyens.co.uk)
 
-First, run the development server:
+## What is this project?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is my personal portfolio! It's based on the Windows 95 OS, but with a few tweaks to give it some personality - [those icons were all made by me](https://rhosgfx.itch.io/vector-icon-pack), for example.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you like the website, please leave some feedback in the `Chat` box!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Screenshot of website](image.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Aim
 
-## Learn More
+When I started making this portfolio, I'd been working at **[Phantom](https://phantom.land)** for just under a year and had just finished up work on **[Rmrkblty](https://www.rmrkblty.org)**. I&apos;d learned a huge amount in that time, and particularly in that last project, so I wanted to show off what I could do in a slightly flashier project. The lion&apos;s share of the work took about a week.
 
-To learn more about Next.js, take a look at the following resources:
+But perhaps the biggest reason I had to make this website was just to have fun. That&apos;s the reason I got into web development in the first place, after all, and it was really niice to make a low-stakes, frontend-focused website in a stack that I&apos;m familiar with.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Future projects will likely be a little more technically impressive, but for now this is my playground. 😊
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How it works
 
-## Deploy on Vercel
+- 👷‍♂️ This site was made in **Next.js** and is hosted on **Vercel**. It uses **[CSS Components](https://css-components.net)** and **SASS** for styling.
+- ✅ It is fully accessibly (though I&apos;m sure I&apos;ve missed something, so please let me know If you see anything), and has an average Lighthouse score of **98** on mobile and **98.75** on desktop.
+- 💬 The Chat box functions via **[Cbox](https://www.cbox.ws)**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Plans
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The site is largely finished, and besides adding case studies in the `Code` page, from the time of writing I will mostly be adding fun features and easter eggs. Current vague plans are as follows:
+
+- Add the Konami code for... something?
+- Add more functionality to the File/Edit/View menus
+- Make resize handles easier to grab on mobile
+
+As you can see, it's mostly fun stuff. But that's what this website is about. 😊
+
+### Known Issues
+
+- Contact form needs confirmation dialogue
+- Wordle:
+  - Bigger keys
+  - Word entry validation
+  - Functional keyboard colours
