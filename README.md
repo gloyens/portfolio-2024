@@ -36,8 +36,6 @@ As you can see, it's mostly fun stuff. But that's what this website is about. ðŸ
 
 ### Known Issues
 
-- Contact form needs confirmation dialogue
 - Wordle:
-  - Bigger keys
   - Word entry validation
   - Functional keyboard colours

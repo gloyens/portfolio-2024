@@ -39,6 +39,11 @@ const Wordle = () => {
   const wordsRef = useRef<HTMLDivElement>(null);
   const keys = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 
+  // Tracks keyboard colours
+  const incorrectLetters = [];
+  const wrongPosLetters = [];
+  const correctLetters = [];
+
   // On-screen keyboard handling
   const handleLetterClick = (letter: string) => {
     if (guess.length < 5 && guessCount < 6 && !correct) {
@@ -105,7 +110,7 @@ const Wordle = () => {
     }
   };
 
-  const getResultStatus = (key: string) => {
+  const getKeyColour = (key: string) => {
     // Check if the key exists in the last guessed word in the resultList
     const lastGuess = resultList[resultList.length - 1];
     if (lastGuess) {
@@ -178,7 +183,7 @@ const Wordle = () => {
                 <Key
                   key={index}
                   onClick={() => handleLetterClick(key)}
-                  status={getResultStatus(key)}
+                  status={getKeyColour(key)}
                 >
                   {key}
                 </Key>

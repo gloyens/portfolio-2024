@@ -7,8 +7,13 @@ import { Form } from "./styles";
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("mqkrzewn");
 
+  const onSubmit = () => {
+    handleSubmit;
+    window.alert("Thank you for your submission!");
+  };
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={onSubmit}>
       <label htmlFor="email">Email</label>
       <input id="email" type="email" name="email" required />
       <ValidationError prefix="Email" field="email" errors={state.errors} />
