@@ -40,9 +40,9 @@ const Wordle = () => {
   const keys = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 
   // Tracks keyboard colours
-  const incorrectLetters = [];
-  const wrongPosLetters = [];
-  const correctLetters = [];
+  const correctLettersRef = useRef<string[]>([]);
+  const wrongPosLettersRef = useRef<string[]>([]);
+  const incorrectLettersRef = useRef<string[]>([]);
 
   // On-screen keyboard handling
   const handleLetterClick = (letter: string) => {
@@ -97,8 +97,20 @@ const Wordle = () => {
       } else if (targetMap.has(letter) && targetMap.get(letter)! > 0) {
         targetMap.set(letter, targetMap.get(letter)! - 1);
         return { letter, status: "WrongPos" };
+      } else {
+        return { letter, status: "Incorrect" };
       }
-      return { letter, status: "Incorrect" };
+    });
+
+    // Track colours
+    result.forEach(({ letter, status }) => {
+      if (status === "Correct") {
+        correctLettersRef.current.push(letter);
+      } else if (status === "WrongPos") {
+        wrongPosLettersRef.current.push(letter);
+      } else {
+        incorrectLettersRef.current.push(letter);
+      }
     });
 
     setResultList([...(resultList as LetterType[][]), result as LetterType[]]);
@@ -110,18 +122,16 @@ const Wordle = () => {
     }
   };
 
-  const getKeyColour = (key: string) => {
-    // Check if the key exists in the last guessed word in the resultList
-    const lastGuess = resultList[resultList.length - 1];
-    if (lastGuess) {
-      const letterObject = lastGuess.find(
-        (letterObj) => letterObj.letter === key
-      );
-      if (letterObject) {
-        return letterObject.status;
-      }
+  const getKeyColor = (key: string) => {
+    if (correctLettersRef.current.includes(key)) {
+      return "Correct";
+    } else if (wrongPosLettersRef.current.includes(key)) {
+      return "WrongPos";
+    } else if (incorrectLettersRef.current.includes(key)) {
+      return "Incorrect";
+    } else {
+      return;
     }
-    return;
   };
 
   const restartGame = () => {
@@ -183,7 +193,7 @@ const Wordle = () => {
                 <Key
                   key={index}
                   onClick={() => handleLetterClick(key)}
-                  status={getKeyColour(key)}
+                  status={getKeyColor(key)}
                 >
                   {key}
                 </Key>

@@ -36,6 +36,4 @@ As you can see, it's mostly fun stuff. But that's what this website is about. ðŸ
 
 ### Known Issues
 
-- Wordle:
-  - Word entry validation
-  - Functional keyboard colours
+- Wordle word entry validation
