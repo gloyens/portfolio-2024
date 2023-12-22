@@ -3,13 +3,16 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Form } from "./styles";
+import { SubmissionData, FieldValues } from "@formspree/core";
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("mqkrzewn");
 
-  const onSubmit = () => {
-    handleSubmit;
-    window.alert("Thank you for your submission!");
+  const onSubmit = async (
+    data: React.FormEvent<HTMLFormElement> | SubmissionData<FieldValues>
+  ) => {
+    await handleSubmit(data);
+    window.alert("Form sent!");
   };
 
   return (

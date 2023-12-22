@@ -140,6 +140,10 @@ const Wordle = () => {
     setGuessCount(0);
     setCorrect(false);
 
+    correctLettersRef.current = [];
+    wrongPosLettersRef.current = [];
+    incorrectLettersRef.current = [];
+
     setTargetWord(
       generate({
         minLength: 5,
