@@ -1,5 +1,7 @@
 "use client";
 
+const Konami = require("konami");
+
 import Window from "@/app/components/Window";
 
 import { AppWrapper } from "./styles";
@@ -23,17 +25,21 @@ const DesktopApp = ({ name, children, noScroll, index }: Props) => {
     [name, openList]
   );
 
-  const handleOpen = () => {
-    setActive(name);
+  const handleOpen = (title: string) => {
+    setActive(title);
 
-    openList.includes(name)
+    openList.includes(title)
       ? setOpenList(openList)
-      : setOpenList([...openList, name]);
+      : setOpenList([...openList, title]);
 
-    minimisedList.includes(name)
-      ? setMinimisedList(minimisedList.filter((item) => item !== name))
+    minimisedList.includes(title)
+      ? setMinimisedList(minimisedList.filter((item) => item !== title))
       : setMinimisedList(minimisedList);
   };
+
+  useEffect(() => {
+    new Konami(() => handleOpen("Wordle"));
+  }, []);
 
   const handleClose = () => {
     setIsOpen(false);

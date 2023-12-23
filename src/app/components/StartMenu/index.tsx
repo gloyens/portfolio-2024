@@ -18,7 +18,7 @@ const StartMenu = ({ isOpen }: Props) => {
   return (
     <StartMenuWrapper isOpen={isOpen}>
       <User>
-        <h2 contentEditable>Guest</h2>
+        <h2>Guest</h2>
       </User>
       <MenuItems>
         <button onClick={() => handleOpen("Notepad")}>
