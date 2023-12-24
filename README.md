@@ -28,8 +28,8 @@ Future projects will likely be a little more technically impressive, but for now
 
 The site is largely finished, and besides adding case studies in the `Code` page, from the time of writing I will mostly be adding fun features and easter eggs. Current vague plans are as follows:
 
-- Add the Konami code for... something?
 - Add more functionality to the File/Edit/View menus
+- Add more programs to the start menu
 - Make resize handles easier to grab on mobile
 
 As you can see, it's mostly fun stuff. But that's what this website is about. 😊
