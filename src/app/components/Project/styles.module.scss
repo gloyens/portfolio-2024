@@ -5,6 +5,7 @@ li.ProjectWrapper {
   gap: 24px;
 
   width: 100%;
+  padding: 12px;
 
   div {
     position: relative;
@@ -33,5 +34,10 @@ li.ProjectWrapper {
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+  }
+
+  &:hover {
+    outline: 2px dotted var(--color-blue);
+    cursor: pointer;
   }
 }

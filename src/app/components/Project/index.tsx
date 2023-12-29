@@ -5,9 +5,10 @@ import { ReactNode } from "react";
 import { ProjectWrapper } from "./styles";
 
 interface Props {
+  onClick: () => void;
   children: ReactNode[];
 }
 
-export const Project = ({ children }: Props) => {
-  return <ProjectWrapper>{children}</ProjectWrapper>;
+export const Project = ({ onClick, children }: Props) => {
+  return <ProjectWrapper onClick={onClick}>{children}</ProjectWrapper>;
 };

@@ -1,12 +1,22 @@
+"use client";
+
 import PageWrapper from "@/app/components/PageWrapper";
 import { CodePage, OGImageWrapper, Projects } from "./styles";
 import { Project } from "@/app/components/Project";
 import Image from "next/image";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+
+import Portfolio from "@/app/caseStudies/portfolio";
+import GetIntoGizz from "@/app/caseStudies/getIntoGizz";
+import MovieBot from "@/app/caseStudies/movieBot";
+import Rmrkblty from "@/app/caseStudies/rmrkblty";
+
+import { ReactNode, useEffect, useState } from "react";
 
 const Code = () => {
-  return (
-    <CodePage>
+  const [content, setContent] = useState<ReactNode>(<p>Loading...</p>);
+
+  const mainPage = () => {
+    return (
       <PageWrapper>
         <h2>Code</h2>
         <p>
@@ -88,7 +98,13 @@ const Code = () => {
           <code>README.md</code> inside the Github <code>Code</code> links!
         </p>
         <Projects>
-          <Project>
+          <Project
+            onClick={() =>
+              setContent(
+                <GetIntoGizz handleBack={() => setContent(mainPage)} />
+              )
+            }
+          >
             <OGImageWrapper>
               <Image src="/getIntoGizz.png" alt="Get Into Gizz image" fill />
             </OGImageWrapper>
@@ -113,7 +129,11 @@ const Code = () => {
             </div>
           </Project>
 
-          <Project>
+          <Project
+            onClick={() =>
+              setContent(<MovieBot handleBack={() => setContent(mainPage)} />)
+            }
+          >
             <OGImageWrapper>
               <Image
                 src="/movieBot.png"
@@ -136,7 +156,11 @@ const Code = () => {
             </div>
           </Project>
 
-          <Project>
+          <Project
+            onClick={() =>
+              setContent(<Rmrkblty handleBack={() => setContent(mainPage)} />)
+            }
+          >
             <OGImageWrapper>
               <Image
                 src="/rmrkblty.png"
@@ -158,7 +182,11 @@ const Code = () => {
             </div>
           </Project>
 
-          <Project>
+          <Project
+            onClick={() =>
+              setContent(<Portfolio handleBack={() => setContent(mainPage)} />)
+            }
+          >
             <OGImageWrapper>
               <Image
                 src="/portfolio.png"
@@ -181,8 +209,15 @@ const Code = () => {
           </Project>
         </Projects>
       </PageWrapper>
-    </CodePage>
-  );
+    );
+  };
+
+  // Initialise with main code page content
+  useEffect(() => {
+    setContent(mainPage());
+  }, []);
+
+  return <CodePage>{content}</CodePage>;
 };
 
 export default Code;
