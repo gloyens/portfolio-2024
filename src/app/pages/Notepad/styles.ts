@@ -8,4 +8,5 @@ export const NotepadPage = styled("article", {
 
 export const TextArea = styled("div", {
   css: css.TextArea,
+  passthrough: ["placeholder"],
 });
