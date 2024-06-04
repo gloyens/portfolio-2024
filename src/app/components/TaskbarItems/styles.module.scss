@@ -26,6 +26,8 @@ button.TaskbarItem {
   color: white;
   overflow: hidden;
 
+  cursor: pointer;
+
   &:hover {
     background-color: var(--color-blue-light);
   }

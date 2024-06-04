@@ -33,13 +33,13 @@ const iconDataList: IconData[] = [
     alt: "Pencil icon",
     page: <Icons />,
   },
-  {
-    name: "Music",
-    src: "/icons/disc.png",
-    alt: "Disc icon",
-    page: <Music />,
-    noScroll: true,
-  },
+  // {
+  //   name: "Music",
+  //   src: "/icons/disc.png",
+  //   alt: "Disc icon",
+  //   page: <Music />,
+  //   noScroll: true,
+  // },
   { name: "CV", src: "/icons/feather.png", alt: "Feather icon", page: <CV /> },
   {
     name: "Contact",
